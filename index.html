@@ -5,8 +5,18 @@
   <title>JSON Merge Tool</title>
   <meta name="description" content="JSON Merge Tool">
   <meta name="author" content="Jamie Steele">
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
-  <script src="js/scripts.js"></script>
+  <script>
+		function merge() {
+			var difLeft = JSON.parse(document.getElementById("difLeft").value);
+			var difRight = JSON.parse(document.getElementById("difRight").value);
+	
+			for (key in difLeft) {
+				difRight[key] = difLeft[key];
+			}
+	
+			document.getElementById("mergeResults").innerHTML = JSON.stringify(difRight);
+		}
+  </script>
 </head>
 <body>
   <input id="difLeft" type="textarea">
